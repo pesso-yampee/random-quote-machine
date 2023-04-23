@@ -1,19 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useGetAnimeQuotesQuery } from "../redux/animeQuotesApi";
 
-type Props = {
-	color: string;
-};
-
-export function NewQuoteButton(props: Props) {
-	const { color } = props;
-	const dispatch = useDispatch();
+export function NewQuoteButton() {
+  const { data, error, isFetching } = useGetAnimeQuotesQuery("one piece");
+	
 	return (
 		<button
 			type="button"
-			className="btn"
-			style={{
-				backgroundColor: color
-			}}
+			className="btn primary"
 			// onClick={dispatch()}
 		>
 			New Quote

@@ -1,13 +1,12 @@
 type Props = {
-	color: string;
-	text: string;
+	text: string | undefined;
 };
 
 export function Text(props: Props) {
-	const { color, text } = props;
+	const { text } = props;
 
 	return (
-		<p className="text" style={{ color: color }}>
+		<p className="text">
 			{text}
 		</p>
 	);
