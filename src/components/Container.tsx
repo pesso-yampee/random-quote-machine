@@ -1,24 +1,22 @@
-import { useSelector } from "react-redux";
-import { NewQuoteButton } from "./NewQuoteButton";
-import { Author } from "./Author";
-import { QuoteBox } from "./QuoteBox";
-import { Text } from "./Text";
-import { Line } from "./Line";
-import { Twitter } from "./Twitter";
 import type { RootState } from "../redux/store";
 import { useGetAnimeQuotesQuery } from "../redux/animeQuotesApi";
 export function Container() {
-  const { data, error, isFetching } = useGetAnimeQuotesQuery("one piece");
+  const { data, error, isLoading, isFetching, refetch } =
+    useGetAnimeQuotesQuery("one piece");
 
   return (
     <div className="container">
-      <QuoteBox
-        Author={<Author text={data?.character} />}
-        NewQuoteButton={<NewQuoteButton />}
-        Text={<Text text={data?.quote} />}
-        Line={<Line />}
-        Twitter={<Twitter link="#" />}
-      />
+      <div id="quote-box" className="quoteBox">
+        <p className="text">{data?.quote}</p>
+        <div id="author" className="author">
+          <span>{data?.character}</span>
+        </div>
+        <div className="flexContainer">
+          <button type="button" className="btn primary" onClick={refetch}>
+            New Quote
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
