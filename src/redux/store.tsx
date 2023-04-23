@@ -1,10 +1,8 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import { setColorSlice } from "./setColorSlice";
 import { animeQuotesApi } from "./animeQuotesApi";
 
 export const store = configureStore({
   reducer: {
-    setColor: setColorSlice.reducer,
     [animeQuotesApi.reducerPath]: animeQuotesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
