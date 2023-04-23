@@ -16,8 +16,6 @@ export function Container() {
         Author={<Author text={data?.character} />}
         NewQuoteButton={<NewQuoteButton />}
         Text={<Text text={data?.quote} />}
-        Line={<Line />}
-        Twitter={<Twitter link="#" />}
       />
     </div>
   );
