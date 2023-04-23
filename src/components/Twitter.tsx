@@ -2,20 +2,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 type Props = {
-	color: string;
 	link: string;
 };
 
 export function Twitter(props: Props): JSX.Element {
-	const { color, link } = props;
+	const { link } = props;
 
 	return (
 		<a
-			className="btn"
+			className="btn twitter"
 			href={link}
-			style={{
-				backgroundColor: color
-			}}
+			aria-label="Twitterで共有する"
 		>
 			<span className="iconWrap">
 				<FontAwesomeIcon icon={faTwitter} color="#ffffff" />
