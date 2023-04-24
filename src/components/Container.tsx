@@ -1,12 +1,14 @@
 import type { RootState } from "../redux/store";
 import { useGetAnimeQuotesQuery } from "../redux/animeQuotesApi";
 import LoadingIcons from "react-loading-icons";
+
 export function Container() {
   const { data, error, isLoading, isFetching, refetch } =
     useGetAnimeQuotesQuery("one piece");
 
   return (
     <div className="container">
+      <h1 className="heading">ワンピース名言集</h1>
       <div id="quote-box" className="quoteBox">
         {isLoading || isFetching ? (
           <LoadingIcons.ThreeDots fill="#228b22" speed={0.75} />
